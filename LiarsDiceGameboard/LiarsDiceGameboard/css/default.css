@@ -31,20 +31,20 @@
     grid-template-columns: auto auto auto;
 }
 .row1 {
-    width: 70%;
+    width: 80%;
 }
 .row2 {
-    width: 45%;
+    width: 50%;
 }
 #die1 {
     float: right;
-    margin-right: -15%;
+    margin-right: -10%;
 }
 #die2 {
 }
 #die3 {
     float: left;
-    margin-left: -15%;
+    margin-left: -10%;
 }
 #die4 {
     float: right;
