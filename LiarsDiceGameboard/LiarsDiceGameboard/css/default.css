@@ -1,12 +1,25 @@
 ﻿body {
+    margin: 0;
+}
+#pirateBackground {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.strech {
+    width: 100%;
+    height: 100%;
 }
 .grid-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    background-color: rebeccapurple;
-    gap: 4px;
+    background-color: black;
+    gap: 8px;
     padding: 10px;
-    padding-right: 20px;
+    padding-right: 34px;
     width: 70%;
     margin: auto;
     margin-top: 5%;
@@ -14,17 +27,21 @@
     align-items: stretch;*/
 }
 .grid-item {
-    background-color: hotpink;
+    background-color: green;
     font-size: 175%;
-    color: crimson;
     text-align: center;
+    color: whitesmoke;
 }
+
 .boxes {
-    text-align: center;
+    padding-left: 18.5%;
+    padding-bottom: 3%;
 }
+
 #item8 {
     grid-area: 2/2/4/4;
     text-align: center;
+    padding-top: 5%;
 }
 .dice {
     display: grid;
@@ -36,19 +53,20 @@
 .row2 {
     width: 50%;
 }
-#die1 {
+.die1 {
     float: right;
     margin-right: -10%;
 }
-#die2 {
+.die2 {
+    float: initial;
 }
-#die3 {
+.die3 {
     float: left;
     margin-left: -10%;
 }
-#die4 {
+.die4 {
     float: right;
 }
-#die5 {
+.die5 {
     float: left;
 }
