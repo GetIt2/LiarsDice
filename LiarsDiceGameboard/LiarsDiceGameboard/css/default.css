@@ -15,7 +15,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    background-color: rebeccapurple;
+    background-color: black;
     gap: 4px;
     padding: 10px;
     padding-right: 20px;
@@ -26,14 +26,14 @@
     align-items: stretch;*/
 }
 .grid-item {
-    background-color: hotpink;
+    background-color: green;
     font-size: 175%;
-    color: crimson;
     text-align: center;
+    color: whitesmoke;
 }
 
 .boxes {
-    padding-left: 40px;
+    padding-left: 45px;
 }
 
 #item8 {
@@ -50,19 +50,20 @@
 .row2 {
     width: 50%;
 }
-#die1 {
+.die1 {
     float: right;
     margin-right: -10%;
 }
-#die2 {
+.die2 {
+    float: initial;
 }
-#die3 {
+.die3 {
     float: left;
     margin-left: -10%;
 }
-#die4 {
+.die4 {
     float: right;
 }
-#die5 {
+.die5 {
     float: left;
 }
