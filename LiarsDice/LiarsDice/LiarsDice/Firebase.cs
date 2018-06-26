@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LiarsDice
@@ -19,10 +23,34 @@ namespace LiarsDice
 
         public GameRules GetGameRules()
         {
-            var json = new WebClient().DownloadString($"{_thisGameUrl}/GameRules{_urlEnd}");
-            GameRules gameRules = JsonConvert.DeserializeObject<GameRules>(json);
-            
-            return gameRules;
+            var request = WebRequest.Create($"{_thisGameUrl}/GameRules{_urlEnd}");
+            request.ContentType = "application/json";
+            request.Method = "GET";
+
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                    Debug.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
+                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                {
+                    var content = reader.ReadToEnd();
+                    if (string.IsNullOrWhiteSpace(content))
+                    {
+                        Debug.WriteLine("Response contained empty body...");
+                    }
+                    else
+                    {
+                        GameRules gameRules = JsonConvert.DeserializeObject<GameRules>(content);
+                        return gameRules;
+                    }
+                }
+            }
+
+            return null;
+            //var client = new HttpClient();
+            //var json = client.GetStringAsync($"{_thisGameUrl}/GameRules{_urlEnd}");
+           
+            //return gameRules;
         }
     }
 }
