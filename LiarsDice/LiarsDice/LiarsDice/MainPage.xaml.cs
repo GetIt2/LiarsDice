@@ -66,7 +66,18 @@ namespace LiarsDice
                                 Text = "Confirm",
                                 BackgroundColor = Color.FromHex("#4d4d4d"),
                                 TextColor = Color.White,
-                                Command = new Command(() => { FetchGame(Entrybox.Text); })
+                                Command = new Command(() =>
+                                {
+                                    try
+                                    {
+                                        FetchGame(Entrybox.Text);
+                                    }
+                                    catch
+                                    {
+                                        ViewServerClosedPage();
+                                    }
+                                    
+                                })
                             }
                         }
                     }
@@ -84,12 +95,52 @@ namespace LiarsDice
             ViewFirebaseContent(gameCode);
             if (gameRules.fields.GetGameSessionOpen())
             {
-                ViewNamePage();
+                ViewNamePage(gameCode);
             }
             else
             {
-
+                ViewServerClosedPage();
             }
+        }
+
+        private void ViewServerClosedPage()
+        {
+            Content = new StackLayout()
+            {
+                BackgroundColor = Color.FromHex("#262626"),
+                Children =
+                {
+                    new Label()
+                    {
+                        Text = "Did you write the right code?",
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        FontSize = 30,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        TextColor = Color.DarkOrange
+                    },
+                    new Label()
+                    {
+                        Text = "Go back and check if you wrote the right code.",
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        FontSize = 20,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        TextColor = Color.White
+                    },
+                    new Button()
+                    {
+                        Text = "Go back",
+                        BackgroundColor = Color.FromHex("#4d4d4d"),
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Margin = 20,
+                        TextColor = Color.White,
+                        Command = new Command(ViewCodePage)
+                    }
+
+                }
+            };
         }
 
         private void ViewFirebaseContent(string gamecode)
@@ -100,12 +151,12 @@ namespace LiarsDice
             {
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-            
+
             site.Children.Add(testlabel);
-            site.BackgroundColor = gameRules.fields.GetGameSessionOpen() ? Color.Green : Color.Red;
+            //site.BackgroundColor = gameRules.fields.GetGameSessionOpen() ? Color.Green : Color.Red;
         }
 
-        private void ViewNamePage()
+        private void ViewNamePage(string gameCode)
         {
             Entrybox = new Entry()
             {
@@ -121,7 +172,7 @@ namespace LiarsDice
                 {
                     new Label()
                     {
-                        Text = "!!!InsertGameCodeHere!!!",
+                        Text = gameCode,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         FontSize = 30,
