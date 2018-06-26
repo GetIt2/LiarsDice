@@ -80,27 +80,29 @@ namespace LiarsDice
             var projectID = "getgameliarsdice1";
             var apikey = "AIzaSyD6rc6jRwbtmlVXWHfUFl9tsPc3H4KMXig";
             FirebaseDatabase = new Firebase(projectID, gameCode, apikey);
+            var gameRules = FirebaseDatabase.GetGameRules();
             ViewFirebaseContent(gameCode);
-            //ViewNamePage();
+            if (gameRules.fields.GetGameSessionOpen())
+            {
+                ViewNamePage();
+            }
+            else
+            {
+
+            }
         }
 
         private void ViewFirebaseContent(string gamecode)
         {
-            var jsonLabel = new Label()
+            var site = new StackLayout();
+            Content = site;
+            var testlabel = new Label()
             {
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-            Content = new ScrollView()
-            {
-                Content = new StackLayout()
-                {
-                    Children =
-                    {
-                        jsonLabel
-                    }
-                }
-            };
-            jsonLabel.Text = FirebaseDatabase.GetDatabaseContent();
+            
+            site.Children.Add(testlabel);
+            site.BackgroundColor = gameRules.fields.GetGameSessionOpen() ? Color.Green : Color.Red;
         }
 
         private void ViewNamePage()
