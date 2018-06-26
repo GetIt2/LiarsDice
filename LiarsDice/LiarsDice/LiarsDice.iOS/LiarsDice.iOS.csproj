@@ -147,7 +147,14 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+=======
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
+>>>>>>> 20725816201398dfa9e813307593f10f0cd623c9
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

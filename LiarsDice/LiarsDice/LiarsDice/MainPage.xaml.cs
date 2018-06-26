@@ -8,6 +8,7 @@ namespace LiarsDice
         public Entry Entrybox;
         public Player ThisPlayer;
         public int NumberOfPlayers;
+        public Firebase FirebaseDatabase;
 
         public MainPage()
         {
@@ -23,7 +24,8 @@ namespace LiarsDice
             {
                 Placeholder = "Game Code",
                 BackgroundColor = Color.White,
-                TextColor = Color.Black
+                TextColor = Color.Black,
+                Keyboard = Keyboard.Numeric
             };
             Content = new StackLayout()
             {
@@ -72,9 +74,33 @@ namespace LiarsDice
             };
         }
 
-        private void FetchGame(string GameCode)
+        private void FetchGame(string gameCode)
         {
-            ViewNamePage();
+            if (gameCode == null) throw new ArgumentNullException(nameof(gameCode));
+            var projectID = "getgameliarsdice1";
+            var apikey = "AIzaSyD6rc6jRwbtmlVXWHfUFl9tsPc3H4KMXig";
+            FirebaseDatabase = new Firebase(projectID, gameCode, apikey);
+            ViewFirebaseContent(gameCode);
+            //ViewNamePage();
+        }
+
+        private void ViewFirebaseContent(string gamecode)
+        {
+            var jsonLabel = new Label()
+            {
+                VerticalOptions = LayoutOptions.FillAndExpand
+            };
+            Content = new ScrollView()
+            {
+                Content = new StackLayout()
+                {
+                    Children =
+                    {
+                        jsonLabel
+                    }
+                }
+            };
+            jsonLabel.Text = FirebaseDatabase.GetDatabaseContent();
         }
 
         private void ViewNamePage()
@@ -386,7 +412,7 @@ namespace LiarsDice
                 else if (diceValueArray[i] == 3) diceImages[i].Source = ImageSource.FromResource("LiarsDice.diceface.diceface3.png");
                 else if (diceValueArray[i] == 4) diceImages[i].Source = ImageSource.FromResource("LiarsDice.diceface.diceface4.png");
                 else if (diceValueArray[i] == 5) diceImages[i].Source = ImageSource.FromResource("LiarsDice.diceface.diceface5.png");
-                else if (diceValueArray[i] == 6) diceImages[i].Source = ImageSource.FromResource("LiarsDice.diceface.diceface6.png");        
+                else if (diceValueArray[i] == 6) diceImages[i].Source = ImageSource.FromResource("LiarsDice.diceface.diceface6.png");
             }
 
             return diceImages;
