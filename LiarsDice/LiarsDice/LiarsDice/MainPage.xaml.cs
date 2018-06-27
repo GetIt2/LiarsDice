@@ -175,7 +175,7 @@ namespace LiarsDice
                         Text = gameCode,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        FontSize = 30,
+                        FontSize = 50,
                         HorizontalTextAlignment = TextAlignment.Center,
                         TextColor = Color.DarkOrange
                     },
