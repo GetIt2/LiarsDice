@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GETGAMEDICE</title>
+    <link href="css/default.css" rel="stylesheet" />
+</head>
+<body>
+<h1>GET game Liar's dice</h1>
+<div id="WelcomeScreen"></div>
+
+<div id="PlayerTable" style="display:none">
+    <div>Player1</div>
+    <div>Player2</div>
+    <div>Player3</div>
+    <div>Player4</div>
+</div>
+
+<div id="EndTheGame" style="display:none">
+    <div>Spillet er ferdig... Cleaning Firebase</div>
+</div>
+
+<input type="button" value="New Game" onClick="NewGame()">
+<input type="button" value="Start New Game" onClick="StartNewGame()">
+<input type="button" value="End Game" onClick="EndGame()">
+
+<input type="button" value="Add player" onClick="players()">
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-functions.js"></script>
+<script src="js/main.js"></script>
+<script>
+    window.onbeforeunload = function (event) {
+        var message = 'Sure you want to leave?';
+        EndGame();
+        if (typeof event == 'undefined') {
+            event = window.event;
+        }
+        if (event) {
+            event.returnValue = message;
+        }
+        return message;
+    }
+</script>
+</body>
+</html>
