@@ -48,6 +48,22 @@ function StartNewGame() {
     //Når man trykker på StartNewGame så blir GameSession satt til closed, og runden begynner med alle spillere som har joinet.
 }
 
+function GetInfo() {
+    var docRef = db.collection("6986").doc("GameRules");
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+
 function EndGame() {
     console.log("Ends game, returns players to main menu, cleans up Firebase session");
     EndTheGame.style.display = "block";
