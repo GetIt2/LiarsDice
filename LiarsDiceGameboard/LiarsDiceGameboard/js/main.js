@@ -101,11 +101,34 @@ for (let i = 0; i < gridElements; i++) {
         document.getElementsByClassName("dice")[i].appendChild(img);
     }
 }
+// Her skjer det ;)
 
 
+/*var docRef2 = db.collection("6986").doc("Player0");
+docRef2.get().then(function (doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    }
+});*/
+
+/*db.collection("cities").where("Player0", "==", "nickname")
+    .get()
+    .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+    .catch(function (error) {
+        console.log("Error getting documents: ", error);
+    });*/
+
+// Noe sånt tror jeg...
+
+var Player = "abc";
 document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
     "Highest bid = 3 [Dice.Value] <br /> <br />" +
-    "Current Player.Name's turn <br />" +
+    Player + "'s turn <br />" +
     "{Wait/Bidding/Calling Lie} <br /> <br />" +
     "Next Player: Player.Name <br />";
 document.getElementById("item8").style.gridArea = "2/2/4/4";
