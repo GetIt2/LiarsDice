@@ -135,4 +135,6 @@ document.getElementById("item8").style.gridArea = "2/2/4/4";
 document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
 
-console.log(playerDice);
+var board = new BoardModel(1);
+board.addPlayer();
+console.log(board.playerDice);
