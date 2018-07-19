@@ -1,0 +1,1 @@
+﻿var dice = new DieModel[5];
