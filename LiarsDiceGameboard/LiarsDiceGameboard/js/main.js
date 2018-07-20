@@ -127,7 +127,7 @@ docRef2.get().then(function (doc) {
 
 var Player = "abc";
 document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
-    "Highest bid = 3 [Dice.Value] <br /> <br />" +
+    "Highest bid = 3 [Die.Value] <br /> <br />" +
     Player + "'s turn <br />" +
     "{Wait/Bidding/Calling Lie} <br /> <br />" +
     "Next Player: Player.Name <br />";
@@ -136,5 +136,4 @@ document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
 
 var board = new BoardModel(1);
-board.addPlayer();
-console.log(board.playerDice);
+console.log(board.players);

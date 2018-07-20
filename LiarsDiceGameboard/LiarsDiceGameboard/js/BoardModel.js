@@ -1,13 +1,13 @@
 ﻿class BoardModel {
 
-
     constructor(playerAmount) {
-        this.playerDice = new DiceModel[playerAmount];
-        this.addPlayer() = function () {
-            for (var i = 0; i < this.playerDice.length; i++) {
-                this.playerDice[i] = new DiceModel();
-            }
+        this.players = [];
+        this.addPlayers(playerAmount);
+    }
+    addPlayers(playerAmount) {
+        for (var i = 0; i < playerAmount; i++) {
+            this.players.push(new PlayerModel(5));
         }
     }
-
 }
+
