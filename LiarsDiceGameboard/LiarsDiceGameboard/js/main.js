@@ -1,6 +1,4 @@
-﻿
-
-// Initialize Firebase
+﻿// Initialize Firebase
 var config = {
     apiKey: "AIzaSyD6rc6jRwbtmlVXWHfUFl9tsPc3H4KMXig",
     authDomain: "getgameliarsdice1.firebaseapp.com",
@@ -9,17 +7,13 @@ var config = {
     storageBucket: "getgameliarsdice1.appspot.com",
     messagingSenderId: "857617741254"
 };
+
 firebase.initializeApp(config);
 var db = firebase.firestore();
 var firestore = firebase.firestore();
 var settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 var databaseId;
-
-
-
-var gridElements = 13;
-var playerDice = 5;
 
 function testFirebase() {
     //GameRules
@@ -48,11 +42,16 @@ function testFirebase() {
     });
 }
 
+var gridElements = 13;
+var playerDice = 5;
+
 document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+
 var button = document.createElement("button");
 var div = document.createElement("div");
+
 div.className = 'grid-container';
 div.style.display = "grid";
 div.style.gridTemplateColumns = "25% 25% 25% 25%";
@@ -64,6 +63,7 @@ div.style.width = "82%";
 div.style.margin = "auto";
 div.style.marginTop = "3%";
 document.body.appendChild(div);
+
 for (let i = 0; i < gridElements; i++) {
     var div = document.createElement("div");
     div.className = 'grid-item';
@@ -101,8 +101,8 @@ for (let i = 0; i < gridElements; i++) {
         document.getElementsByClassName("dice")[i].appendChild(img);
     }
 }
-// Her skjer det ;)
 
+// Her skjer det ;)
 
 /*var docRef2 = db.collection("6986").doc("Player0");
 docRef2.get().then(function (doc) {
@@ -135,5 +135,6 @@ document.getElementById("item8").style.gridArea = "2/2/4/4";
 document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
 
+//New stuff with classes
 var board = new BoardModel(1);
 console.log(board.players);
