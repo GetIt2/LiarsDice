@@ -51,43 +51,27 @@ document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
+//New stuff with classes
+var board = new BoardModel(1, gridElements);
+//console.log(board.players);
+
 // BOARD VIEW
-
-var button = document.createElement("button");
-var div = document.createElement("div");
-
-div.className = 'grid-container';
-div.style.display = "grid";
-div.style.gridTemplateColumns = "25% 25% 25% 25%";
-div.style.backgroundColor = "black";
-div.style.gap = "8px";
-div.style.padding = "10px";
-div.style.paddingRight = "34px";
-div.style.width = "82%";
-div.style.margin = "auto";
-div.style.marginTop = "3%";
-document.body.appendChild(div);
 
 // PLAYER VIEW
 
 for (let i = 0; i < gridElements; i++) {
-    var div = document.createElement("div");
-    div.className = 'grid-item';
-    div.id = "item" + (i + 1);
-    div.style.backgroundColor = "green";
-    div.style.fontSize = "175%";
-    div.style.textAlign = "center";
-    div.style.color = "whitesmoke";
-    document.getElementsByClassName("grid-container")[0].appendChild(div);
+
     var div = document.createElement("div");
     div.className = 'player';
     div.id = "player" + (i + 1);
     document.getElementsByClassName("grid-item")[i].appendChild(div);
+
     var div = document.createElement("div");
     div.className = 'boxes';
     div.id = "box" + (i + 1);
     div.style.padding = "2% 0% 2% 8%";
     document.getElementsByClassName("player")[i].appendChild(div);
+
     var div = document.createElement("div");
     div.style.display = "grid";
     div.style.gridTemplateColumns = "auto auto auto";
@@ -122,7 +106,3 @@ document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /
 document.getElementById("item8").style.gridArea = "2/2/4/4";
 document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
-
-//New stuff with classes
-var board = new BoardModel(1);
-console.log(board.players);
