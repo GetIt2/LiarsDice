@@ -42,12 +42,16 @@ function testFirebase() {
     });
 }
 
+// BODY
+
 var gridElements = 13;
 var playerDice = 5;
 
 document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+
+// BOARD VIEW
 
 var button = document.createElement("button");
 var div = document.createElement("div");
@@ -63,6 +67,8 @@ div.style.width = "82%";
 div.style.margin = "auto";
 div.style.marginTop = "3%";
 document.body.appendChild(div);
+
+// PLAYER VIEW
 
 for (let i = 0; i < gridElements; i++) {
     var div = document.createElement("div");
@@ -87,6 +93,9 @@ for (let i = 0; i < gridElements; i++) {
     div.style.gridTemplateColumns = "auto auto auto";
     div.className = 'dice';
     document.getElementsByClassName("boxes")[i].appendChild(div);
+
+    // DIE VIEW
+
     for (var y = 0; y < playerDice; y++) {
         var img = document.createElement("img");
         img.className = "die";
@@ -102,28 +111,7 @@ for (let i = 0; i < gridElements; i++) {
     }
 }
 
-// Her skjer det ;)
-
-/*var docRef2 = db.collection("6986").doc("Player0");
-docRef2.get().then(function (doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-    }
-});*/
-
-/*db.collection("cities").where("Player0", "==", "nickname")
-    .get()
-    .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-        });
-    })
-    .catch(function (error) {
-        console.log("Error getting documents: ", error);
-    });*/
-
-// Noe sånt tror jeg...
+// INFO
 
 var Player = "abc";
 document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
