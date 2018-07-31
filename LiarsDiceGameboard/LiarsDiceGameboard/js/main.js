@@ -27,7 +27,7 @@ function testFirebase() {
         }
     }).catch(function (error) {
         console.log("Error getting document:", error);
-        });
+    });
     //Player0 
     var docRef2 = db.collection("6986").doc("Player0");
     docRef2.get().then(function (doc) {
@@ -60,11 +60,16 @@ var board = new BoardModel(1, gridElements);
 // PLAYER VIEW
 
 for (let i = 0; i < gridElements; i++) {
-    
+    var box = document.createElement("div");
+    box.className = "boxes";
+    box.id = `box${i}`;
+    box.style.padding = "2% 0% 2% 8%";
+    document.getElementsByClassName("grid-item")[i].appendChild(box);
+
     var div = document.createElement("div");
     div.style.display = "grid";
     div.style.gridTemplateColumns = "auto auto auto";
-    div.className = 'dice';
+    div.className = "dice";
     document.getElementsByClassName("boxes")[i].appendChild(div);
 
     // DIE VIEW
