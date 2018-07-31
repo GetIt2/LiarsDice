@@ -60,11 +60,12 @@ var board = new BoardModel(1, gridElements);
 // PLAYER VIEW
 
 for (let i = 0; i < gridElements; i++) {
-    var box = document.createElement("div");
-    box.className = "boxes";
-    box.id = `box${i}`;
-    box.style.padding = "2% 0% 2% 8%";
-    document.getElementsByClassName("grid-item")[i].appendChild(box);
+
+    //var box = document.createElement("div");
+    //box.className = "boxes";
+    //box.id = `box${i}`;
+    //box.style.padding = "2% 0% 2% 8%";
+    //document.getElementsByClassName("grid-item")[i].appendChild(box);
 
     var div = document.createElement("div");
     div.style.display = "grid";
@@ -91,12 +92,13 @@ for (let i = 0; i < gridElements; i++) {
 
 // INFO
 
-var Player = "abc";
+var player = "abc";
 document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
     "Highest bid = 3 [Die.Value] <br /> <br />" +
-    Player + "'s turn <br />" +
+    player + "'s turn <br />" +
     "{Wait/Bidding/Calling Lie} <br /> <br />" +
     "Next Player: Player.Name <br />";
 document.getElementById("item8").style.gridArea = "2/2/4/4";
 document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
+

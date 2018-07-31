@@ -1,9 +1,9 @@
 ﻿class BoardModel {
 
     constructor(playerAmount, gridElements) {
+        this.showBoard(gridElements);
         this.players = [];
         this.addPlayers(playerAmount);
-        this.showBoard(gridElements);
     }
 
     addPlayers(playerAmount) {

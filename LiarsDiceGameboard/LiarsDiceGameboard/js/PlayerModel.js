@@ -4,7 +4,7 @@
         this.dice = [];
         this.playerNumber = playerNumber;
         this.addDie(amountOfDice);
-       // this.showPlayer(this.playerNumber);
+        this.showPlayer(this.playerNumber);
     }
 
     addDie(amountOfDice) {
@@ -13,8 +13,8 @@
         }
     }
 
-    //showPlayer(playerNumber) {
-    //    var player = new PlayerView();
-    //    player.createBoxes(playerNumber);
-    //}
+    showPlayer(playerNumber) {
+        var player = new PlayerView();
+        player.createBoxes(playerNumber);
+    }
 }
