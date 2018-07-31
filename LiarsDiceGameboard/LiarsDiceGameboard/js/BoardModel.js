@@ -1,15 +1,15 @@
 ﻿class BoardModel {
 
-    constructor(playerAmount, gridElements) {
+    constructor(playerAmount, gridElements, playerDice) {
         this.showBoard(gridElements);
         this.players = [];
-        this.addPlayers(playerAmount);
+        this.addPlayers(playerAmount, playerDice);
         this.addInfo();
     }
 
-    addPlayers(playerAmount) {
+    addPlayers(playerAmount, playerDice) {
         for (var i = 0; i < playerAmount; i++) {
-            this.players.push(new PlayerModel(i, 5));
+            this.players.push(new PlayerModel(i, playerDice));
         }
     }
 

@@ -4,7 +4,7 @@
         this.number = number;
     }
 
-    GetDieFace(dieNumber) {
+    GetDieFace(dieNumber, playerNumber) {
         var img = document.createElement("img");
         img.className = "die";
 
@@ -33,6 +33,6 @@
                 dieNumber === 3 ? 2 :
                     4;
         img.style = `grid-column: ${column} / span 2;`;
-        document.getElementsByClassName("dice")[0].appendChild(img);
+        document.getElementsByClassName("dice")[playerNumber].appendChild(img);
     }
 }

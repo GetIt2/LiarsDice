@@ -4,12 +4,12 @@
         this.playerNumber = playerNumber;
         this.showPlayer(this.playerNumber);
         this.dice = [];
-        this.addDie(amountOfDice);
+        this.addDie(amountOfDice, playerNumber);
     }
 
-    addDie(amountOfDice) {
+    addDie(amountOfDice, playerNumber) {
         for (var i = 0; i < amountOfDice; i++) {
-            this.dice.push(new DieModel(i));
+            this.dice.push(new DieModel(i, playerNumber));
         }
     }
 

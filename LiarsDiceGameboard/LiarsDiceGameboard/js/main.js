@@ -53,7 +53,7 @@ document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
 //New stuff with classes
-var board = new BoardModel(numberOfPlayers, gridElements);
+var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
 //console.log(board.players);
 
 // BOARD VIEW
