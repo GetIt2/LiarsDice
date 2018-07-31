@@ -46,49 +46,21 @@ function testFirebase() {
 
 var gridElements = 13;
 var playerDice = 5;
+var numberOfPlayers = 12;
 
 document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
 //New stuff with classes
-var board = new BoardModel(1, gridElements);
+var board = new BoardModel(numberOfPlayers, gridElements);
 //console.log(board.players);
 
 // BOARD VIEW
 
 // PLAYER VIEW
 
-for (let i = 0; i < gridElements; i++) {
-
-    //var box = document.createElement("div");
-    //box.className = "boxes";
-    //box.id = `box${i}`;
-    //box.style.padding = "2% 0% 2% 8%";
-    //document.getElementsByClassName("grid-item")[i].appendChild(box);
-
-    var div = document.createElement("div");
-    div.style.display = "grid";
-    div.style.gridTemplateColumns = "auto auto auto";
-    div.className = "dice";
-    document.getElementsByClassName("boxes")[i].appendChild(div);
-
-    // DIE VIEW
-
-    for (var y = 0; y < playerDice; y++) {
-        var img = document.createElement("img");
-        img.className = "die";
-        //div.style.width = "90%";
-        img.src = "images/dice-face-" + (y + 1) + ".png";
-        var column =
-            y < 3 ? 1 + y * 2 :
-                y === 3 ? 2 :
-                    4;
-
-        img.style = "grid-column: " + column + " / span 2;";
-        document.getElementsByClassName("dice")[i].appendChild(img);
-    }
-}
+// DIE VIEW
 
 // INFO
 

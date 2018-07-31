@@ -1,15 +1,15 @@
 ﻿class PlayerModel {
 
     constructor(playerNumber, amountOfDice) {
-        this.dice = [];
         this.playerNumber = playerNumber;
-        this.addDie(amountOfDice);
         this.showPlayer(this.playerNumber);
+        this.dice = [];
+        this.addDie(amountOfDice);
     }
 
     addDie(amountOfDice) {
         for (var i = 0; i < amountOfDice; i++) {
-            this.dice.push(new DieModel());
+            this.dice.push(new DieModel(i));
         }
     }
 

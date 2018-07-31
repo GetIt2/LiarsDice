@@ -4,6 +4,15 @@
 
     }
 
+    createBox() {
+        var box = document.createElement("div");
+        box.className = "boxes";
+        box.id = "box8";
+        box.style.padding = "2% 0% 2% 8%";
+        document.getElementsByClassName("grid-item")[7].appendChild(box);
+
+    }
+
     //createInfoWindow() {
     //    var player = "abc";
     //    document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
