@@ -8,7 +8,7 @@
 
     addPlayers(playerAmount) {
         for (var i = 0; i < playerAmount; i++) {
-            this.players.push(new PlayerModel(5));
+            this.players.push(new PlayerModel(i,5));
         }
     }
 

@@ -5,7 +5,7 @@
 
     createGrid() {
         var gridDiv = document.createElement("div");
-        gridDiv.className = 'grid-container';
+        gridDiv.className = "grid-container";
         gridDiv.style.display = "grid";
         gridDiv.style.gridTemplateColumns = "25% 25% 25% 25%";
         gridDiv.style.backgroundColor = "black";
@@ -19,7 +19,6 @@
 
         for (let i = 0; i < gridElements; i++) {
             var gridItems = document.createElement("div");
-            gridItems.innerHTML = "Hello";
             gridItems.className = "grid-item";
             gridItems.id = `item${i + 1}`;
             gridItems.style.backgroundColor = "green";

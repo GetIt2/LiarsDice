@@ -53,22 +53,19 @@ document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
 //New stuff with classes
 var board = new BoardModel(1, gridElements);
+//console.log(board.players);
+
+// BOARD VIEW
 
 // PLAYER VIEW
 
 for (let i = 0; i < gridElements; i++) {
-
-    var div = document.createElement("div");
-    div.className = 'player';
-    div.id = "player" + (i + 1);
-    document.getElementsByClassName("grid-item")[i].appendChild(div);
     
     var div = document.createElement("div");
     div.style.display = "grid";
     div.style.gridTemplateColumns = "auto auto auto";
-    div.style.padding = "2% 0% 2% 8%";
     div.className = 'dice';
-    document.getElementsByClassName("player")[i].appendChild(div);
+    document.getElementsByClassName("boxes")[i].appendChild(div);
 
     // DIE VIEW
 
@@ -98,11 +95,3 @@ document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /
 document.getElementById("item8").style.gridArea = "2/2/4/4";
 document.getElementById("item8").style.textAlign = "center";
 document.getElementById("item8").style.paddingTop = "5%";
-document.getElementById("item8").style.color = "whitesmoke";
-document.getElementById("item1").style.borderColor = "hotpink";
-var classNameEX = document.getElementsByClassName("grid-item");
-for (var i = 0; i < gridElements; i++) {
-    if (i !== 7) classNameEX[i].style.borderRadius = "100px";
-   
-    
-}
