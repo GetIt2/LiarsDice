@@ -19,6 +19,7 @@
 
         for (let i = 0; i < gridElements; i++) {
             var gridItems = document.createElement("div");
+            gridItems.innerHTML = "Hello";
             gridItems.className = "grid-item";
             gridItems.id = `item${i + 1}`;
             gridItems.style.backgroundColor = "green";
