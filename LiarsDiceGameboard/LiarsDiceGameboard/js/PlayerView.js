@@ -1,7 +1,7 @@
 ﻿class PlayerView {
     constructor() {
     }
-
+    //FEIL HER!!!!!!!
     createBoxes(playerNumber) {
         var box = document.createElement("div");
         box.className = "boxes";
