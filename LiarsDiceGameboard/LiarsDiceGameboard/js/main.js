@@ -52,25 +52,6 @@ document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
-//New stuff with classes
+//Board with players
+
 var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
-//console.log(board.players);
-
-// BOARD VIEW
-
-// PLAYER VIEW
-
-// DIE VIEW
-
-// INFO
-
-var player = "abc";
-document.getElementById("item8").innerHTML = "Previous player: Player.Name <br /> " +
-    "Highest bid = 3 [Die.Value] <br /> <br />" +
-    player + "'s turn <br />" +
-    "{Wait/Bidding/Calling Lie} <br /> <br />" +
-    "Next Player: Player.Name <br />";
-document.getElementById("item8").style.gridArea = "2/2/4/4";
-document.getElementById("item8").style.textAlign = "center";
-document.getElementById("item8").style.paddingTop = "5%";
-
