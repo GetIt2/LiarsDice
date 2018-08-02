@@ -42,8 +42,9 @@ function testFirebase() {
     });
 }
 
-// BODY
 
+
+//Board with players
 var gridElements = 13;
 var playerDice = 5;
 var numberOfPlayers = 12;
@@ -52,6 +53,5 @@ document.body.style.margin = "0";
 document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
 
-//Board with players
 
 var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
