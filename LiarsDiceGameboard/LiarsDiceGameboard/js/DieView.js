@@ -8,6 +8,8 @@
         var img = document.createElement("img");
         img.className = "die";
 
+        dieNumber = dieNumber - 1;
+
         switch (this.number) {
             case 1:
                 img.src = "images/dice-face-1.png";
@@ -33,6 +35,7 @@
                 dieNumber === 3 ? 2 :
                     4;
         img.style = `grid-column: ${column} / span 2;`;
-        document.getElementsByClassName("dice")[playerNumber].appendChild(img);
+
+        document.getElementsByClassName("dice")[playerNumber - 1].appendChild(img);
     }
 }

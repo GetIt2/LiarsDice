@@ -3,13 +3,13 @@
     constructor(playerAmount, gridElements, playerDice) {
         this.showBoard(gridElements);
         this.players = [];
-        this.addPlayers(playerAmount, playerDice);
         this.addInfo();
+        this.addPlayers(playerAmount, playerDice);
     }
 
     addPlayers(playerAmount, playerDice) {
         for (var i = 0; i < playerAmount; i++) {
-            this.players.push(new PlayerModel(i, playerDice));
+            this.players.push(new PlayerModel(i + 1, playerDice));
         }
     }
 

@@ -9,7 +9,7 @@
 
     addDie(amountOfDice, playerNumber) {
         for (var i = 0; i < amountOfDice; i++) {
-            this.dice.push(new DieModel(i, playerNumber));
+            this.dice.push(new DieModel(i + 1, playerNumber));
         }
     }
 
