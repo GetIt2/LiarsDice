@@ -46,12 +46,12 @@ function testFirebase() {
 
 //Board with players
 var gridElements = 13;
-var playerDice = 5;
+var playerDice = 2;
 var numberOfPlayers = 12;
 
-document.body.style.margin = "0";
-document.body.style.position = "absolute";
 document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+document.body.style.backgroundRepeat = "no-repeat";
+document.body.style.backgroundSize = "cover";
 
 
 var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
