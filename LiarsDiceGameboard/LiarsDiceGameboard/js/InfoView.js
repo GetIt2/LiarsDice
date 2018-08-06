@@ -13,11 +13,11 @@
         box.style.textAlign = "center";
         box.style.paddingTop = "5%";
 
-        box.innerHTML = "Previous player: Player.Name <br /> " +
+        box.innerHTML = "Previous player: previous player <br /> " +
             "Highest bid = 3 [Die.Value] <br /> <br />" +
-            "Cat" + "'s turn <br />" +
+            "player" + "'s turn <br />" +
             "{Wait/Bidding/Calling Lie} <br /> <br />" +
-            "Next Player: Player.Name <br />";
+            "Next Player: next player <br />";
 
         document.getElementsByClassName("grid-item")[7].appendChild(box);
 
