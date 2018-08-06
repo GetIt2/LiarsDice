@@ -87,7 +87,7 @@ function CreatNewGame() {
     gameBoardButton.style.padding = "0.5em";
     gameBoardButton.style.margin = "auto";
     gameBoardButton.style.width = "20%";
-    gameBoardButton.innerHTML = "Start new game!";
+    gameBoardButton.innerHTML = "Go to board";
     gameBoardButton.style.fontSize = "30px";
     gameBoardButton.style.textAlign = "center";
     gameBoardButton.style.color = "white";
