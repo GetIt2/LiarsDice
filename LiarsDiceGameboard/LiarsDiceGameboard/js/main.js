@@ -93,7 +93,7 @@ function CreatNewGame() {
     gameBoardButton.style.color = "white";
     gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     gameBoardButton.style.cursor = "pointer";
-    gameBoardButton.onclick = function() { CreateBoard() };
+    gameBoardButton.onclick = function() { CreateBoard(); };
     document.getElementById("mainContainer").appendChild(gameBoardButton);
 
     //Make new game id
