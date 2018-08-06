@@ -16,7 +16,7 @@
         gridDiv.style.width = "82%";
         gridDiv.style.margin = "auto";
         gridDiv.style.marginTop = "3%";
-        document.body.appendChild(gridDiv);
+        document.getElementById("mainContainer").appendChild(gridDiv);
 
         for (let i = 0; i < this.gridElements; i++) {
             var gridItems = document.createElement("div");

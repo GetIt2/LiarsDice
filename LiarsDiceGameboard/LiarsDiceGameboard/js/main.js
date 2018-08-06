@@ -61,11 +61,13 @@ function CreatNewGame() {
     greeting.style.marginTop = "20%";
     greeting.style.textAlign = "center";
     greeting.style.color = "darkgreen";
-    document.body.appendChild(greeting);
+    document.getElementById("mainContainer").appendChild(greeting);
 
     var newGameButton = document.createElement("div");
+    newGameButton.class = "buttons";
     newGameButton.id = "newGameButton";
     newGameButton.style.backgroundColor = "darkgreen";
+    newGameButton.style.border = "none";
     newGameButton.style.padding = "0.5em";
     newGameButton.style.margin = "auto";
     newGameButton.style.width = "20%";
@@ -73,10 +75,15 @@ function CreatNewGame() {
     newGameButton.style.fontSize = "30px";
     newGameButton.style.textAlign = "center";
     newGameButton.style.color = "white";
-    document.body.appendChild(newGameButton);
+    newGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    newGameButton.style.cursor = "pointer";
+   document.getElementById("mainContainer").appendChild(newGameButton);
 
     var gameBoardButton = document.createElement("div");
+    gameBoardButton.class = "buttons";
+    gameBoardButton.innerHTML = "Jump to board";
     gameBoardButton.style.backgroundColor = "darkgreen";
+    gameBoardButton.style.border = "none";
     gameBoardButton.style.padding = "0.5em";
     gameBoardButton.style.margin = "auto";
     gameBoardButton.style.width = "20%";
@@ -84,8 +91,10 @@ function CreatNewGame() {
     gameBoardButton.style.fontSize = "30px";
     gameBoardButton.style.textAlign = "center";
     gameBoardButton.style.color = "white";
-    gameBoardButton.onclick = CreateBoard();
-    document.body.appendChild(gameBoardButton);
+    gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    gameBoardButton.style.cursor = "pointer";
+    gameBoardButton.onclick = function() { CreateBoard() };
+    document.getElementById("mainContainer").appendChild(gameBoardButton);
 
     //Make new game id
     //databaseId = new Uint16Array(1);
@@ -101,12 +110,13 @@ function CreateBoard() {
     var gridElements = 13;
     var playerDice = 5;
     var numberOfPlayers = 12;
-    
+
     document.body.style.margin = "0";
     document.body.style.position = "absolute";
     document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
+    document.getElementById("mainContainer").innerHTML = "";
 
     var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
 }
