@@ -4,7 +4,7 @@
         this.playerNumber = playerNumber;
         this.showPlayer(this.playerNumber);
         this.dice = [];
-        this.addDie(amountOfDice, playerNumber);
+        this.addDie(amountOfDice, this.playerNumber);
     }
 
     addDie(amountOfDice, playerNumber) {
