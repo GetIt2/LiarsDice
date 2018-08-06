@@ -72,8 +72,20 @@ function CreatNewGame() {
     newGameButton.innerHTML = "Start new game!";
     newGameButton.style.fontSize = "30px";
     newGameButton.style.textAlign = "center";
-    newGameButton.style.color = "black";
+    newGameButton.style.color = "white";
     document.body.appendChild(newGameButton);
+
+    var gameBoardButton = document.createElement("div");
+    gameBoardButton.style.backgroundColor = "darkgreen";
+    gameBoardButton.style.padding = "0.5em";
+    gameBoardButton.style.margin = "auto";
+    gameBoardButton.style.width = "20%";
+    gameBoardButton.innerHTML = "Start new game!";
+    gameBoardButton.style.fontSize = "30px";
+    gameBoardButton.style.textAlign = "center";
+    gameBoardButton.style.color = "white";
+    gameBoardButton.onclick = CreateBoard();
+    document.body.appendChild(gameBoardButton);
 
     //Make new game id
     //databaseId = new Uint16Array(1);
