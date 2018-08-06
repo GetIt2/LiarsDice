@@ -17,7 +17,7 @@
         gridDiv.style.marginTop = "3%";
         document.body.appendChild(gridDiv);
 
-        for (let i = 0; i < gridElements; i++) {
+        for (let i = 0; i < this.gridElements; i++) {
             var gridItems = document.createElement("div");
             gridItems.className = "grid-item";
             gridItems.id = `item${i + 1}`;
