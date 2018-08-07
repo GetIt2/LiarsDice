@@ -8,14 +8,13 @@
         gridDiv.className = "grid-container";
         gridDiv.style.display = "grid";
         gridDiv.style.gridTemplateColumns = "21vw 21vw 21vw 21vw";
-        gridDiv.style.gridTemplateRows = "20vh 20vh 20vh 20vh";
+        gridDiv.style.gridTemplateRows = "24vh 24vh 24vh 24vh";
         gridDiv.style.backgroundColor = "black";
-        gridDiv.style.gap = "8px";
-        gridDiv.style.padding = "10px";
-        gridDiv.style.paddingRight = "5%";
-        gridDiv.style.width = "82%";
+        gridDiv.style.gap = "0.65vh";
+        gridDiv.style.padding = "0.65vh";
+        gridDiv.style.width = "178.25vh";
         gridDiv.style.margin = "auto";
-        gridDiv.style.marginTop = "3%";
+        gridDiv.style.marginLeft = "7%";
         document.getElementById("mainContainer").appendChild(gridDiv);
 
         for (let i = 0; i < this.gridElements; i++) {
@@ -23,11 +22,14 @@
             gridItems.className = "grid-item";
             gridItems.id = `item${i + 1}`;
             gridItems.style.backgroundColor = "green";
-            gridItems.style.fontSize = "175%";
-
+            gridItems.style.fontSize = "150%";
             gridItems.style.textAlign = "center";
             gridItems.style.color = "whitesmoke";
             document.getElementsByClassName("grid-container")[0].appendChild(gridItems);
+            gridItems.style.borderRadius = "100px";
+            for (let y = 1; y > 6 + 1; y++) {
+                gridItems.style.backgroundImage = "url('images/dice-face-'" + y + "'.png')";
+            }
         }
     }
 }
