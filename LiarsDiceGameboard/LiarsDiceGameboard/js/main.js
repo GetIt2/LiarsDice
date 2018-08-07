@@ -44,10 +44,10 @@ function testFirebase() {
 
 // Viewable pages
 var databaseId;
-CreatNewGame();
+FirstPage();
 
 //New Game page
-function CreatNewGame() {
+function FirstPage() {
     document.body.style.margin = "0";
     document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
     document.body.style.backgroundRepeat = "no-repeat";
@@ -77,6 +77,7 @@ function CreatNewGame() {
     newGameButton.style.color = "white";
     newGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     newGameButton.style.cursor = "pointer";
+    newGameButton.onclick = function () { CreateNewGame(); };
    document.getElementById("mainContainer").appendChild(newGameButton);
 
     var gameBoardButton = document.createElement("div");
@@ -86,6 +87,7 @@ function CreatNewGame() {
     gameBoardButton.style.border = "none";
     gameBoardButton.style.padding = "0.5em";
     gameBoardButton.style.margin = "auto";
+    gameBoardButton.style.marginTop = "1em";
     gameBoardButton.style.width = "20%";
     gameBoardButton.innerHTML = "Go to board";
     gameBoardButton.style.fontSize = "30px";
@@ -93,19 +95,35 @@ function CreatNewGame() {
     gameBoardButton.style.color = "white";
     gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     gameBoardButton.style.cursor = "pointer";
-    gameBoardButton.onclick = function() { CreateBoard(); };
+    gameBoardButton.onclick = function() { CreateNewBoard(); };
     document.getElementById("mainContainer").appendChild(gameBoardButton);
+}
 
+function CreateNewGame() {
+
+    document.getElementById("mainContainer").innerHTML = "";
+    
     //Make new game id
-    //databaseId = new Uint16Array(1);
-    //window.crypto.getRandomValues(databaseId);
+    databaseId = new Uint16Array(1);
+    window.crypto.getRandomValues(databaseId);
 
-    //console.log(databaseId);
+    var gameCodeMessage = document.createElement("div");
+    gameCodeMessage.id = "gameCodeMessage";
+    gameCodeMessage.innerHTML = `Game code: ${databaseId}`;
+    gameCodeMessage.style.fontSize = "40px";
+    gameCodeMessage.style.margin = "auto";
+    gameCodeMessage.style.marginTop = "2em";
+    gameCodeMessage.style.textAlign = "center";
+    gameCodeMessage.style.color = "darkgreen";
+    document.getElementById("mainContainer").appendChild(gameCodeMessage);
 
+     
 }
 
 //Board with players
-function CreateBoard() {
+function CreateNewBoard() {
+
+    document.getElementById("mainContainer").innerHTML = "";
 
     var gridElements = 13;
     var playerDice = 5;
@@ -116,7 +134,6 @@ function CreateBoard() {
     document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
-    document.getElementById("mainContainer").innerHTML = "";
 
     var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
 }
