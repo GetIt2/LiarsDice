@@ -117,7 +117,15 @@ function CreateNewGame() {
     gameCodeMessage.style.color = "darkgreen";
     document.getElementById("mainContainer").appendChild(gameCodeMessage);
 
-     
+    var playerListTable = document.createElement("tabel");
+    playerListTable.id = "playerListTable";
+    document.getElementById("mainContainer").appendChild(playerListTable);
+    
+    var numberOfRows = 4;
+    var numberOfCells = 3;
+    for (var i = 0; i < numberOfRows; i++) {
+        
+    }
 }
 
 //Board with players
