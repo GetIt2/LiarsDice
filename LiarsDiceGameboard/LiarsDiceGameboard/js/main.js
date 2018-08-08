@@ -78,7 +78,7 @@ function FirstPage() {
     newGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     newGameButton.style.cursor = "pointer";
     newGameButton.onclick = function () { CreateNewGame(); };
-   document.getElementById("mainContainer").appendChild(newGameButton);
+    document.getElementById("mainContainer").appendChild(newGameButton);
 
     var gameBoardButton = document.createElement("div");
     gameBoardButton.class = "buttons";
@@ -95,14 +95,14 @@ function FirstPage() {
     gameBoardButton.style.color = "white";
     gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     gameBoardButton.style.cursor = "pointer";
-    gameBoardButton.onclick = function() { CreateNewBoard(); };
+    gameBoardButton.onclick = function () { CreateNewBoard(); };
     document.getElementById("mainContainer").appendChild(gameBoardButton);
 }
 
 function CreateNewGame() {
 
     document.getElementById("mainContainer").innerHTML = "";
-    
+
     //Make new game id
     databaseId = new Uint16Array(1);
     window.crypto.getRandomValues(databaseId);
@@ -117,14 +117,19 @@ function CreateNewGame() {
     gameCodeMessage.style.color = "darkgreen";
     document.getElementById("mainContainer").appendChild(gameCodeMessage);
 
+    var numberOfRows = 4;
+    var numberOfCells = 3;
+
     var playerListTable = document.createElement("tabel");
     playerListTable.id = "playerListTable";
     document.getElementById("mainContainer").appendChild(playerListTable);
-    
-    var numberOfRows = 4;
-    var numberOfCells = 3;
+
     for (var i = 0; i < numberOfRows; i++) {
-        
+        var row = playerListTable.insertRow(i);
+        for (var j = 0; j < numberOfCells; j++) {
+            var cell = row.insertCell(j);
+            cell.innerHTML = "Cell" + j;
+        }
     }
 }
 
