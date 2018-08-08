@@ -144,7 +144,8 @@ function CreateNewBoard() {
 
     document.body.style.margin = "0";
     document.body.style.position = "absolute";
-    document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+    //document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+    document.body.style.backgroundColor = "black";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 

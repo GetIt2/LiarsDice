@@ -1,7 +1,7 @@
 ﻿class DieView {
 
-    constructor(number) {
-        this.number = number;
+    constructor(value) {
+        this.value = value;
     }
 
     GetDieFace(dieNumber, playerNumber) {
@@ -10,7 +10,7 @@
 
         dieNumber = dieNumber - 1;
 
-        switch (this.number) {
+        switch (this.value) {
             case 1:
                 img.src = "images/dice-face-1.png";
                 break;
