@@ -120,7 +120,7 @@ function CreateNewGame() {
     var numberOfRows = 4;
     var numberOfCells = 3;
 
-    var playerListTable = document.createElement("tabel");
+    var playerListTable = document.createElement("table");
     playerListTable.id = "playerListTable";
     document.getElementById("mainContainer").appendChild(playerListTable);
 
