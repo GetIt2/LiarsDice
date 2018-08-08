@@ -9,7 +9,7 @@
         gridDiv.style.display = "grid";
         gridDiv.style.gridTemplateColumns = "21vw 21vw 21vw 21vw";
         gridDiv.style.gridTemplateRows = "24vh 24vh 24vh 24vh";
-        gridDiv.style.backgroundColor = "#222233";
+        gridDiv.style.backgroundColor = "#006900"; // |   |
         gridDiv.style.gap = "0.3vw";
         gridDiv.style.padding = "0.5vw";
         //gridDiv.style.width = "42.1vw";
@@ -21,10 +21,10 @@
             var gridItems = document.createElement("div");
             gridItems.className = "grid-item";
             gridItems.id = `item${i + 1}`;
-            gridItems.style.backgroundColor = "green";
+            gridItems.style.backgroundColor = "#1D991D"; // ( )
             gridItems.style.fontSize = "150%";
             gridItems.style.textAlign = "center";
-            gridItems.style.color = "whitesmoke";
+            gridItems.style.color = "whitesmoke"; // A
             document.getElementsByClassName("grid-container")[0].appendChild(gridItems);
             gridItems.style.borderRadius = "100px";
             for (let y = 1; y > 6 + 1; y++) {
