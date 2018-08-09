@@ -9,11 +9,7 @@
         gridDiv.style.display = "grid";
         gridDiv.style.gridTemplateColumns = "21vw 21vw 21vw 21vw";
         gridDiv.style.gridTemplateRows = "24vh 24vh 24vh 24vh";
-<<<<<<< HEAD
-        gridDiv.style.backgroundColor = "black";
-=======
-        gridDiv.style.backgroundColor = "#006900"; // |   |
->>>>>>> 2d7815b6ee0085815c77a11faa2496ca99e346f4
+        gridDiv.style.backgroundColor = "#006900";
         gridDiv.style.gap = "0.3vw";
         gridDiv.style.padding = "0.5vw";
         //gridDiv.style.width = "42.1vw";

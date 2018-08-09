@@ -170,13 +170,8 @@ function CreateNewBoard() {
 
     document.body.style.margin = "0";
     document.body.style.position = "absolute";
-<<<<<<< HEAD
-    //document.body.style.backgroundImage = "none";
-    document.body.style.backgroundColor = "black";
-=======
     document.body.style.backgroundImage = "none";
-    document.body.style.backgroundColor = "#006900"; // |     |
->>>>>>> 2d7815b6ee0085815c77a11faa2496ca99e346f4
+    document.body.style.backgroundColor = "#006900"; 
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 
