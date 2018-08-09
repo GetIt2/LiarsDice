@@ -12,8 +12,8 @@
         box.id = "box8";
         document.getElementById("item8").style.gridArea = "2/2/4/4";
         box.style.textAlign = "center";
-        box.style.paddingTop = "8vh";
-        box.style.fontSize = "125%";
+        box.style.paddingTop = "5vh";
+        box.style.fontSize = "5vh";
 
         var img = document.createElement("img");
         img.className = "infoDie";
