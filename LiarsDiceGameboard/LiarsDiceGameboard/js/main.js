@@ -122,15 +122,41 @@ function CreateNewGame() {
 
     var playerListTable = document.createElement("table");
     playerListTable.id = "playerListTable";
+    playerListTable.style.alignContent = "center";
+    playerListTable.style.backgroundColor = "bisque";
+    playerListTable.style.border = "0.2em darkgrey";
+    playerListTable.style.color = "black";
+    playerListTable.style.width = "85vw";
+    playerListTable.style.height = "60vh";
+    playerListTable.style.margin = "5vw";
     document.getElementById("mainContainer").appendChild(playerListTable);
 
     for (var i = 0; i < numberOfRows; i++) {
         var row = playerListTable.insertRow(i);
         for (var j = 0; j < numberOfCells; j++) {
             var cell = row.insertCell(j);
-            cell.innerHTML = "Cell" + j;
+            cell.style.padding = "2em";
+            cell.innerHTML = "Cell " + j;
         }
     }
+
+    var gameBoardButton = document.createElement("div");
+    gameBoardButton.class = "buttons";
+    gameBoardButton.innerHTML = "Jump to board";
+    gameBoardButton.style.backgroundColor = "darkgreen";
+    gameBoardButton.style.border = "none";
+    gameBoardButton.style.padding = "0.5em";
+    gameBoardButton.style.margin = "auto";
+    gameBoardButton.style.marginTop = "1em";
+    gameBoardButton.style.width = "20%";
+    gameBoardButton.innerHTML = "Go to board";
+    gameBoardButton.style.fontSize = "30px";
+    gameBoardButton.style.textAlign = "center";
+    gameBoardButton.style.color = "white";
+    gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    gameBoardButton.style.cursor = "pointer";
+    gameBoardButton.onclick = function () { CreateNewBoard(); };
+    document.getElementById("mainContainer").appendChild(gameBoardButton);
 }
 
 //Board with players
@@ -144,7 +170,7 @@ function CreateNewBoard() {
 
     document.body.style.margin = "0";
     document.body.style.position = "absolute";
-    //document.body.style.backgroundImage = "url('images/Pirate background 2.jpg')";
+    //document.body.style.backgroundImage = "none";
     document.body.style.backgroundColor = "black";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
