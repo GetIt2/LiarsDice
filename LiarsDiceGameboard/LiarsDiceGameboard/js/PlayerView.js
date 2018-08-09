@@ -5,7 +5,6 @@
     createBoxes(playerNumber) {
         var box = document.createElement("div");
         box.className = "boxes";
-        box.style.padding = "2% 0% 2% 8%";
         if (playerNumber <= 7) box.id = `box${playerNumber}`;
         else if (playerNumber > 7) box.id = `box${playerNumber + 1}`;
         if (playerNumber <= 7) document.getElementsByClassName("grid-item")[playerNumber - 1].appendChild(box);

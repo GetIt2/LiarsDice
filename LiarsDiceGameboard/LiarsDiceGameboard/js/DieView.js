@@ -35,6 +35,9 @@
                 dieNumber === 3 ? 2 :
                     4;
         img.style = `grid-column: ${column} / span 2;`;
+        img.style.width = "4vw";
+        img.style.height = "8vh";
+        img.style.padding = "1vh 0vw 1vh 1.5vw";
 
         document.getElementsByClassName("dice")[playerNumber - 1].appendChild(img);
     }
