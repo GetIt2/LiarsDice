@@ -42,7 +42,7 @@ function testFirebase() {
     });
 }
 
-// Viewable pages
+// View-able pages
 var databaseId;
 FirstPage();
 
