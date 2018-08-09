@@ -1,4 +1,4 @@
-﻿// Initialize Firebase
+﻿//firebase
 var config = {
     apiKey: "AIzaSyD6rc6jRwbtmlVXWHfUFl9tsPc3H4KMXig",
     authDomain: "getgameliarsdice1.firebaseapp.com",
@@ -7,43 +7,54 @@ var config = {
     storageBucket: "getgameliarsdice1.appspot.com",
     messagingSenderId: "857617741254"
 };
-
 firebase.initializeApp(config);
 var db = firebase.firestore();
-var firestore = firebase.firestore();
-var settings = { timestampsInSnapshots: true };
+const firestore = firebase.firestore();
+const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 var databaseId;
 
-function testFirebase() {
-    //GameRules
-    var docRef1 = db.collection("6986").doc("GameRules");
-    docRef1.get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
-    //Player0 
-    var docRef2 = db.collection("6986").doc("Player0");
-    docRef2.get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
+console.log('hei');
+
+function initFirebase(gameKey) {
+    var game = db.collection(gameKey).doc("GameRules").set({
+        AmountOfPlayers: 0,
+        AmountOfPlayersAllowed: 12,
+        GameSessonOpen: true,
+        IsBossMode: false,
+        TotalDiceCount: 0
     });
 }
 
+//function testFirebase() {
+//    //GameRules
+//    var docRef1 = db.collection("6986").doc("GameRules");
+//    docRef1.get().then(function (doc) {
+//        if (doc.exists) {
+//            console.log("Document data:", doc.data());
+//        } else {
+//            // doc.data() will be undefined in this case
+//            console.log("No such document!");
+//        }
+//    }).catch(function (error) {
+//        console.log("Error getting document:", error);
+//    });
+//    //Player0 
+//    var docRef2 = db.collection("6986").doc("Player0");
+//    docRef2.get().then(function (doc) {
+//        if (doc.exists) {
+//            console.log("Document data:", doc.data());
+//        } else {
+//            // doc.data() will be undefined in this case
+//            console.log("No such document!");
+//        }
+//    }).catch(function (error) {
+//        console.log("Error getting document:", error);
+//    });
+//}
+
 // Viewable pages
-var databaseId;
+
 FirstPage();
 
 //New Game page
@@ -106,6 +117,11 @@ function CreateNewGame() {
     //Make new game id
     databaseId = new Uint16Array(1);
     window.crypto.getRandomValues(databaseId);
+    console.log("GameSessionID:");
+    for (var y = 0; y < databaseId.length; y++) {
+        console.log(databaseId[y]);
+        initFirebase(databaseId[y].toString());
+    }
 
     var gameCodeMessage = document.createElement("div");
     gameCodeMessage.id = "gameCodeMessage";
@@ -171,7 +187,7 @@ function CreateNewBoard() {
     document.body.style.margin = "0";
     document.body.style.position = "absolute";
     document.body.style.backgroundImage = "none";
-    document.body.style.backgroundColor = "#006900"; 
+    document.body.style.backgroundColor = "#006900";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 
