@@ -26,7 +26,6 @@ function initFirebase(gameKey) {
     });
 }
 
-<<<<<<< HEAD
 //function testFirebase() {
 //    //GameRules
 //    var docRef1 = db.collection("6986").doc("GameRules");
@@ -55,12 +54,6 @@ function initFirebase(gameKey) {
 //}
 
 // Viewable pages
-
-=======
-// View-able pages
-var databaseId;
->>>>>>> cd91e188967c7868cea4a9b0cb566d30154cc3b1
-FirstPage();
 
 //New Game page
 function FirstPage() {
@@ -190,15 +183,9 @@ function CreateNewBoard() {
     var numberOfPlayers = 12;
 
     document.body.style.margin = "0";
-<<<<<<< HEAD
-    document.body.style.position = "absolute";
-    document.body.style.backgroundImage = "none";
-    document.body.style.backgroundColor = "#006900";
-=======
     document.body.style.backgroundImage = "url(https://ru.all.biz/img/ru/catalog/473831.jpeg)";
     document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundColor = "#422F17"; // |     |
->>>>>>> cd91e188967c7868cea4a9b0cb566d30154cc3b1
+    document.body.style.backgroundColor = "#422F17";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 
