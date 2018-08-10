@@ -47,10 +47,21 @@ namespace LiarsDice
             }
 
             return null;
-            //var client = new HttpClient();
-            //var json = client.GetStringAsync($"{_thisGameUrl}/GameRules{_urlEnd}");
-           
-            //return gameRules;
+        }
+
+        public void SendPlayerData()
+        {
+            // CreatePlayer in firebase
+            // Give player a number, and send name
+            // 
+            // 
+        }
+
+        public void SendGameRules()
+        {
+            // Update amount of players
+            // TotalDiceCount
+            // 
         }
     }
 }

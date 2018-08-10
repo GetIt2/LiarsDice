@@ -9,6 +9,7 @@ namespace LiarsDice
         public Player ThisPlayer;
         public int NumberOfPlayers;
         public Firebase FirebaseDatabase;
+        public GameRules ThisGameRules { get; set; }
 
         public MainPage()
         {
@@ -76,7 +77,7 @@ namespace LiarsDice
                                     {
                                         ViewServerClosedPage();
                                     }
-                                    
+
                                 })
                             }
                         }
@@ -91,9 +92,9 @@ namespace LiarsDice
             var projectID = "getgameliarsdice1";
             var apikey = "AIzaSyD6rc6jRwbtmlVXWHfUFl9tsPc3H4KMXig";
             FirebaseDatabase = new Firebase(projectID, gameCode, apikey);
-            var gameRules = FirebaseDatabase.GetGameRules();
+            ThisGameRules = FirebaseDatabase.GetGameRules();
             ViewFirebaseContent(gameCode);
-            if (gameRules.fields.GetGameSessionOpen())
+            if (ThisGameRules.fields.GetGameSessionOpen())
             {
                 ViewNamePage(gameCode);
             }
@@ -102,6 +103,7 @@ namespace LiarsDice
                 ViewServerClosedPage();
             }
         }
+
 
         private void ViewServerClosedPage()
         {
@@ -205,10 +207,18 @@ namespace LiarsDice
 
         private void CreatePlayer(string name)
         {
-            int playerNr = 0;
+            ThisGameRules.fields.AmountOfPlayers.integerValue++;
+            int playerNr = ThisGameRules.fields.AmountOfPlayers.integerValue;
             int amountOfDice = 5;
+            ThisGameRules.fields.TotalDiceCount.integerValue += amountOfDice;
             ThisPlayer = new Player(name, amountOfDice, playerNr);
             NumberOfPlayers = 8;
+            LoadingPage();
+        }
+
+        private void LoadingPage()
+        {
+
             ViewMenuPage();
         }
 
