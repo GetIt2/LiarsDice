@@ -182,7 +182,7 @@ function CreateNewBoard() {
     var gridElements = 13;
     var playerDice = 5;
     var numberOfPlayers = 12;
-
+     
     document.body.style.margin = "0";
     document.body.style.backgroundImage = "url(https://ru.all.biz/img/ru/catalog/473831.jpeg)";
     document.body.style.backgroundSize = "cover";
