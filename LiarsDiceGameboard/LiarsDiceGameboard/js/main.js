@@ -14,6 +14,7 @@ const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 var databaseId;
 
+FirstPage();
 console.log('hei');
 
 function initFirebase(gameKey) {
