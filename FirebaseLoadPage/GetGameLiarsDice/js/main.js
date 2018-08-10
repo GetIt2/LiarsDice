@@ -105,3 +105,26 @@ function players() {
         TotalNumberOf6s: 0
     });
 }
+
+function players() {
+    db.collection(databaseId.toString()).doc("Player" + [0]).set({
+        Nickname: "Bjarne",
+        isAlive: true,
+        isBoss: false,
+        TotalDie: 5,
+        CalledOutLie: false,
+        TotalNumberOf1s: 0,
+        TotalNumberOf2s: 0,
+        TotalNumberOf3s: 0,
+        TotalNumberOf4s: 0,
+        TotalNumberOf5s: 0,
+        TotalNumberOf6s: 0
+    });
+}
+
+
+function CloseGameSession() {
+    db.collection("1337").doc("GameRules").update({
+        GameSessionOpen: false
+    });
+}
