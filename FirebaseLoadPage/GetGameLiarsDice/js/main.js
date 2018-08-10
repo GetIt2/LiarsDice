@@ -63,7 +63,6 @@ function GetInfo() {
     });
 }
 
-
 function EndGame() {
     console.log("Ends game, returns players to main menu, cleans up Firebase session");
     EndTheGame.style.display = "block";

@@ -1,7 +1,7 @@
 ﻿class DieModel {
 
     constructor(dieNumber, playerNumber) {
-        this.value = Math.floor((Math.random() * 6) + 1);
+        this.value = Math.floor(Math.random() * 6 + 1);
         this.dieNumber = dieNumber;
         this.ShowDie(this.dieNumber, playerNumber);
     }
