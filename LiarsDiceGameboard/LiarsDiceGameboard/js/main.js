@@ -21,7 +21,7 @@ function initFirebase(gameKey) {
     var game = db.collection(gameKey).doc("GameRules").set({
         AmountOfPlayers: 0,
         AmountOfPlayersAllowed: 12,
-        GameSessonOpen: true,
+        GameSessionOpen: true,
         IsBossMode: false,
         TotalDiceCount: 0
     });
@@ -173,22 +173,62 @@ function CreateNewGame() {
     gameBoardButton.onclick = function () { CreateNewBoard(); };
     document.getElementById("mainContainer").appendChild(gameBoardButton);
 }
-
+function CloseGameSession() {
+    db.collection(databaseId.toString()).doc("GameRules").update({
+        GameSessionOpen: false
+    });
+        console.log(databaseId.toString());
+}
 //Board with players
 function CreateNewBoard() {
 
     document.getElementById("mainContainer").innerHTML = "";
 
+    /*var docRef = db.collection(databaseId.toString()).doc("GameRules").fsadhdf("AmountOfPlayers", "TotalDiceCount");
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });*/
+    var numberOfPlayers = 12;
     var gridElements = 13;
     var playerDice = 5;
-    var numberOfPlayers = 12;
-     
+
     document.body.style.margin = "0";
     document.body.style.backgroundImage = "url(https://images.alphacoders.com/741/thumb-1920-74183.jpg)";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundColor = "#422F17";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
+    document.body.onclick = function () { CloseGameSession(); };
 
     var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
+
+    function endGame() {
+        document.body.innerHTML = "Game Over";
+        document.body.style.margin = "40vh 33vw";
+        document.body.style.color = "green";
+        document.body.style.fontSize = "100px";
+    }
+
+    var endGameButton = document.createElement("div");
+    endGameButton.class = "buttons";
+    endGameButton.innerHTML = "End Game";
+    endGameButton.style.backgroundColor = "darkgreen";
+    endGameButton.style.border = "none";
+    endGameButton.style.padding = "0.5em";
+    endGameButton.style.margin = "auto";
+    endGameButton.style.width = "20%";
+    endGameButton.style.fontSize = "30px";
+    endGameButton.style.textAlign = "center";
+    endGameButton.style.color = "white";
+    endGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    endGameButton.style.cursor = "pointer";
+    endGameButton.onclick = function () { endGame(); };
+    document.getElementsByClassName("grid-item")[7].appendChild(endGameButton);
 }
