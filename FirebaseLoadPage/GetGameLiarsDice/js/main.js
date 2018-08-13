@@ -90,6 +90,18 @@ function EndGame() {
     }, 1000);
 }
 
+function DeleteSessions() {
+    db.collection("17519").doc("GameRules").delete().then(function () {
+        console.log("Document successfully deleted!");
+    }).catch(function (error) {
+        console.error("Error removing document: ", error);
+    });
+    setTimeout(function () {
+        history.go(0);
+        console.log("Done!");
+    }, 1000);
+}
+
 function players() {
     db.collection(databaseId.toString()).doc("Player" + [0]).set({
         Nickname: "Bjarne",
