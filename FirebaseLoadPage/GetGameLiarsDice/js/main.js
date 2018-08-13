@@ -49,11 +49,12 @@ function StartNewGame() {
 }
 
 function GetInfo() {
-    var docRef = db.collection("6986").doc("GameRules");
+    var docRef = db.collection("418").doc("GameRules");
 
     docRef.get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -140,3 +141,5 @@ function CloseGameSession() {
         GameSessionOpen: false
     });
 }
+
+
