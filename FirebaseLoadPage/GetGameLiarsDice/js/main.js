@@ -49,11 +49,12 @@ function StartNewGame() {
 }
 
 function GetInfo() {
-    var docRef = db.collection("6986").doc("GameRules");
+    var docRef = db.collection("418").doc("GameRules");
 
     docRef.get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -80,6 +81,18 @@ function EndGame() {
     //////////////////////
 
     db.collection(databaseId.toString()).doc("Player0").delete().then(function () {
+        console.log("Document successfully deleted!");
+    }).catch(function (error) {
+        console.error("Error removing document: ", error);
+    });
+    setTimeout(function () {
+        history.go(0);
+        console.log("Done!");
+    }, 1000);
+}
+
+function DeleteSessions() {
+    db.collection("17519").doc("GameRules").delete().then(function () {
         console.log("Document successfully deleted!");
     }).catch(function (error) {
         console.error("Error removing document: ", error);
@@ -128,3 +141,5 @@ function CloseGameSession() {
         GameSessionOpen: false
     });
 }
+
+
