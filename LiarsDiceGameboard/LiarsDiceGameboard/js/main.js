@@ -212,13 +212,13 @@ function CreateNewBoard() {
     var diceVariable = document.getElementsByClassName("dice");
 
     function hideDice() {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < diceVariable.length; i++) {
             diceVariable[i].style.visibility = "hidden";
         }
     }
 
     function revealDice() {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < diceVariable.length; i++) {
             diceVariable[i].style.visibility = "visible";
         }
     }
@@ -255,6 +255,7 @@ function CreateNewBoard() {
     hideDiceButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     hideDiceButton.style.cursor = "pointer";
     hideDiceButton.onclick = function () { hideDice(); };
+    document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton, );
 
     var revealDiceButton = document.createElement("div");
     revealDiceButton.class = "buttons";
@@ -270,6 +271,7 @@ function CreateNewBoard() {
     revealDiceButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     revealDiceButton.style.cursor = "pointer";
     revealDiceButton.onclick = function () { revealDice(); };
+    document.getElementsByClassName("grid-item")[7].appendChild(revealDiceButton);
 
     var endGameButton = document.createElement("div");
     endGameButton.class = "buttons";
@@ -285,7 +287,5 @@ function CreateNewBoard() {
     endGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     endGameButton.style.cursor = "pointer";
     endGameButton.onclick = function () { endGame(); };
-    document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton, );
-    document.getElementsByClassName("grid-item")[7].appendChild(revealDiceButton);
     document.getElementsByClassName("grid-item")[7].appendChild(endGameButton);
 }
