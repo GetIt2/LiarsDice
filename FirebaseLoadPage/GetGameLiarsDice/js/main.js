@@ -50,17 +50,10 @@ function StartNewGame() {
 
 function GetInfo() {
     var docRef = db.collection("418").doc("GameRules");
-
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
+    docRef.onSnapshot(function (doc) {
+        document.body.innerHTML = "";
+        var amountOfPlayers = doc.data().AmountOfPlayers;
+        console.log("AmountOfPlayers:", amountOfPlayers);
     });
 }
 
