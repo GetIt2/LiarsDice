@@ -105,7 +105,7 @@ function FirstPage() {
     gameBoardButton.style.color = "white";
     gameBoardButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     gameBoardButton.style.cursor = "pointer";
-    gameBoardButton.onclick = function () { CreateNewBoard(); };
+    gameBoardButton.onclick = function () { GetFirebaseInfoAndCreateNewBoard(); };
     document.getElementById("mainContainer").appendChild(gameBoardButton);
 }
 
@@ -180,22 +180,23 @@ function CloseGameSession() {
     console.log(databaseId.toString());
 }
 //Board with players
-function CreateNewBoard() {
+function GetFirebaseInfoAndCreateNewBoard() {
+    var docRef = db.collection("418").doc("GameRules");
+    docRef.onSnapshot(function (doc) {
+        var amountOfPlayers = doc.data().AmountOfPlayers;
+        var totalDiceCount = doc.data().TotalDiceCount;
+        console.log("AmountOfPlayers:", amountOfPlayers);
+        for (let i = 0; i < 12; i++) {
+            if (i > 7 && i < 7)
+                document.body.innerHTML = "";
+            CreateNewBoard(amountOfPlayers);
+        }
+    });
+}
+function CreateNewBoard(playerAmount) {
 
     document.getElementById("mainContainer").innerHTML = "";
-
-    /*var docRef = db.collection(databaseId.toString()).doc("GameRules").fsadhdf("AmountOfPlayers", "TotalDiceCount");
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });*/
-    var numberOfPlayers = 12;
+    
     var gridElements = 13;
     var playerDice = 5;
 
@@ -207,7 +208,7 @@ function CreateNewBoard() {
     document.body.style.backgroundSize = "cover";
     document.body.onclick = function () { CloseGameSession(); };
 
-    var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
+    var board = new BoardModel(playerAmount, gridElements, playerDice);
 
     var diceVariable = document.getElementsByClassName("dice");
 
@@ -288,4 +289,6 @@ function CreateNewBoard() {
     document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton, );
     document.getElementsByClassName("grid-item")[7].appendChild(revealDiceButton);
     document.getElementsByClassName("grid-item")[7].appendChild(endGameButton);
+
+    
 }

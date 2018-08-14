@@ -50,7 +50,8 @@ function StartNewGame() {
 
 function GetInfo() {
     var docRef = db.collection("418").doc("GameRules");
-    docRef.get().then(function(doc) {
+    docRef.onSnapshot(function (doc) {
+        document.body.innerHTML = "";
         var amountOfPlayers = doc.data().AmountOfPlayers;
         console.log("AmountOfPlayers:", amountOfPlayers);
     });
