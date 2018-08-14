@@ -61,6 +61,7 @@
         var dice = document.createElement("div");
         dice.className = "dice";
         dice.style.display = "grid";
+        dice.style.visibility = "hidden";
         dice.style.gridTemplateColumns = "auto auto auto";
         console.log(playerNumber, document.getElementsByClassName("boxes"));
         if (playerNumber <= 7) document.getElementsByClassName("boxes")[playerNumber - 1].appendChild(dice);
