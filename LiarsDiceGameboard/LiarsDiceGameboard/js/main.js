@@ -177,7 +177,7 @@ function CloseGameSession() {
     db.collection(databaseId.toString()).doc("GameRules").update({
         GameSessionOpen: false
     });
-        console.log(databaseId.toString());
+    console.log(databaseId.toString());
 }
 //Board with players
 function CreateNewBoard() {
@@ -209,6 +209,20 @@ function CreateNewBoard() {
 
     var board = new BoardModel(numberOfPlayers, gridElements, playerDice);
 
+    var diceVariable = document.getElementsByClassName("dice");
+
+    function hideDice() {
+        for (let i = 0; i < 12; i++) {
+            diceVariable[i].style.visibility = "hidden";
+        }
+    }
+
+    function revealDice() {
+        for (let i = 0; i < 12; i++) {
+            diceVariable[i].style.visibility = "visible";
+        }
+    }
+
     function endGame() {
         document.body.innerHTML = "Game Over";
         document.body.style.margin = "40vh 33vw";
@@ -216,19 +230,62 @@ function CreateNewBoard() {
         document.body.style.fontSize = "100px";
     }
 
+    var buttonParent = document.createElement("ul");
+    buttonParent.id = "motherOfButtons";
+    buttonParent.listStyle = "none";
+    buttonParent.width = "100%";
+    buttonParent.height = "33px";
+    buttonParent.margin = "0";
+    buttonParent.padding = "0";
+    buttonParent.whiteSpace = "nowrap";
+    buttonParent.overflowX = "auto";
+    buttonParent.overflowY = "hidden";
+
+    var hideDiceButton = document.createElement("div");
+    hideDiceButton.class = "buttons";
+    hideDiceButton.innerHTML = "Hide Dice";
+    hideDiceButton.style.backgroundColor = "darkgreen";
+    hideDiceButton.style.margin = "auto";
+    hideDiceButton.style.border = "none";
+    hideDiceButton.style.padding = "0.5em";
+    hideDiceButton.style.display = "inline-block";
+    hideDiceButton.style.fontSize = "4vh";
+    hideDiceButton.style.textAlign = "center";
+    hideDiceButton.style.color = "white";
+    hideDiceButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    hideDiceButton.style.cursor = "pointer";
+    hideDiceButton.onclick = function () { hideDice(); };
+
+    var revealDiceButton = document.createElement("div");
+    revealDiceButton.class = "buttons";
+    revealDiceButton.innerHTML = "Reveal Dice";
+    revealDiceButton.style.backgroundColor = "darkgreen";
+    revealDiceButton.style.margin = "auto";
+    revealDiceButton.style.border = "none";
+    revealDiceButton.style.padding = "0.5em";
+    revealDiceButton.style.display = "inline-block";
+    revealDiceButton.style.fontSize = "4vh";
+    revealDiceButton.style.textAlign = "center";
+    revealDiceButton.style.color = "white";
+    revealDiceButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
+    revealDiceButton.style.cursor = "pointer";
+    revealDiceButton.onclick = function () { revealDice(); };
+
     var endGameButton = document.createElement("div");
     endGameButton.class = "buttons";
     endGameButton.innerHTML = "End Game";
     endGameButton.style.backgroundColor = "darkgreen";
+    endGameButton.style.margin = "auto";
     endGameButton.style.border = "none";
     endGameButton.style.padding = "0.5em";
-    endGameButton.style.margin = "auto";
-    endGameButton.style.width = "20%";
-    endGameButton.style.fontSize = "30px";
+    endGameButton.style.display = "inline-block";
+    endGameButton.style.fontSize = "4vh";
     endGameButton.style.textAlign = "center";
     endGameButton.style.color = "white";
     endGameButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     endGameButton.style.cursor = "pointer";
     endGameButton.onclick = function () { endGame(); };
+    document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton, );
+    document.getElementsByClassName("grid-item")[7].appendChild(revealDiceButton);
     document.getElementsByClassName("grid-item")[7].appendChild(endGameButton);
 }
