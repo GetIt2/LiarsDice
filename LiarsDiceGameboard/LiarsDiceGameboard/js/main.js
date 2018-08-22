@@ -228,7 +228,8 @@ function CreateNewBoard(playerAmount) {
         document.body.innerHTML = "Game Over";
         document.body.style.margin = "40vh 33vw";
         document.body.style.color = "green";
-        document.body.style.fontSize = "100px";
+        document.body.style.textAlign = "center";
+        document.body.style.fontSize = "7vw";
     }
 
     var buttonParent = document.createElement("ul");
@@ -248,6 +249,8 @@ function CreateNewBoard(playerAmount) {
     hideDiceButton.style.backgroundColor = "darkgreen";
     hideDiceButton.style.margin = "auto";
     hideDiceButton.style.border = "none";
+    hideDiceButton.style.borderBottomLeftRadius = "35px";
+    hideDiceButton.style.borderTopRightRadius = "35px";
     hideDiceButton.style.padding = "0.5em";
     hideDiceButton.style.display = "inline-block";
     hideDiceButton.style.fontSize = "4vh";
@@ -256,14 +259,16 @@ function CreateNewBoard(playerAmount) {
     hideDiceButton.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)";
     hideDiceButton.style.cursor = "pointer";
     hideDiceButton.onclick = function () { hideDice(); };
-    document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton, );
+    document.getElementsByClassName("grid-item")[7].appendChild(hideDiceButton);
 
     var revealDiceButton = document.createElement("div");
     revealDiceButton.class = "buttons";
     revealDiceButton.innerHTML = "Reveal Dice";
     revealDiceButton.style.backgroundColor = "darkgreen";
-    revealDiceButton.style.margin = "auto";
+    revealDiceButton.style.margin = "0 " + screen.availWidth / 10000 + "vw";
     revealDiceButton.style.border = "none";
+    revealDiceButton.style.borderTopRightRadius = "35px";
+    revealDiceButton.style.borderTopLeftRadius = "35px";
     revealDiceButton.style.padding = "0.5em";
     revealDiceButton.style.display = "inline-block";
     revealDiceButton.style.fontSize = "4vh";
@@ -273,13 +278,15 @@ function CreateNewBoard(playerAmount) {
     revealDiceButton.style.cursor = "pointer";
     revealDiceButton.onclick = function () { revealDice(); };
     document.getElementsByClassName("grid-item")[7].appendChild(revealDiceButton);
-
+    
     var endGameButton = document.createElement("div");
     endGameButton.class = "buttons";
     endGameButton.innerHTML = "End Game";
     endGameButton.style.backgroundColor = "darkgreen";
     endGameButton.style.margin = "auto";
     endGameButton.style.border = "none";
+    endGameButton.style.borderBottomRightRadius = "35px";
+    endGameButton.style.borderTopLeftRadius = "35px";
     endGameButton.style.padding = "0.5em";
     endGameButton.style.display = "inline-block";
     endGameButton.style.fontSize = "4vh";

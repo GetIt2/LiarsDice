@@ -63,6 +63,7 @@
         dice.style.display = "grid";
         dice.style.visibility = "hidden";
         dice.style.gridTemplateColumns = "auto auto auto";
+        dice.style.boxShadow = "1vh -2vw 70px 0 rgba(0,0,0,0.5), 1vh -2vw 70px 0 rgba(0,0,0,0.48)";
         console.log(playerNumber, document.getElementsByClassName("boxes"));
         if (playerNumber <= 7) document.getElementsByClassName("boxes")[playerNumber - 1].appendChild(dice);
         else if (playerNumber > 7) document.getElementsByClassName("boxes")[playerNumber].appendChild(dice);

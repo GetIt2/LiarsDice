@@ -7,14 +7,14 @@
         var gridDiv = document.createElement("div");
         gridDiv.className = "grid-container";
         gridDiv.style.display = "grid";
-        gridDiv.style.gridTemplateColumns = "21vw 21vw 21vw 21vw";
-        gridDiv.style.gridTemplateRows = "24vh 24vh 24vh 24vh";
-        //gridDiv.style.backgroundColor = "#422F17"; // |   |
-        gridDiv.style.gap = "0.3vw";
-        gridDiv.style.padding = "0.5vw";
-        //gridDiv.style.width = "42.1vw";
         gridDiv.style.margin = "auto";
         gridDiv.style.marginLeft = "6.5vw";
+        gridDiv.style.padding = "0.5vw";
+        //gridDiv.style.width = "42.1vw";
+        gridDiv.style.gridTemplateColumns = "21vw 21vw 21vw 21vw";
+        gridDiv.style.gridTemplateRows = "24vh 24vh 24vh 24vh";
+        gridDiv.style.gap = "0.3vw";
+        //gridDiv.style.backgroundColor = "#422F17"; // |   |
         document.getElementById("mainContainer").appendChild(gridDiv);
 
         for (let i = 0; i < this.gridElements; i++) {
